@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Code.CameraTool;
 using Code.NPCs;
@@ -21,6 +22,7 @@ public class NotableObject : MonoBehaviour
     )]
     private Collider collider_;
     public PlayMakerFSM LinkedFSM;
+    public Action OnCaptured;
 
     public void Awake()
     {
@@ -83,5 +85,6 @@ public class NotableObject : MonoBehaviour
         {
             LinkedFSM.SendEvent("Captured");
         }
+        OnCaptured?.Invoke();
     }
 }
