@@ -8,29 +8,29 @@ namespace SnapQuestScripts.DesignTestScripts
         public MeshRenderer render1,render2,render3;
         public UnityEvent onFinished;
         
-        private int _passTimes = 0;
+        private bool pass1, pass2, pass3;
 
         public void Pass(int passIndex)
         {
-            if(_passTimes >= passIndex ) return;
-            _passTimes++;
             switch (passIndex)
             {
                 case 1:
                     render1.material.color = Color.green;
+                    pass1 = true;
                     break;
                 case 2:
                     render2.material.color = Color.green;
+                    pass2 = true;
                     break;
                 case 3:
                     render3.material.color = Color.green;
+                    pass3 = true;
                     break;
             }
-
-            if (_passTimes > 3)
+            
+            if (pass1 && pass2 && pass3)
             {
                 onFinished?.Invoke();
-                
             }
         }
     }
