@@ -36,3 +36,6 @@ MonoBehaviour:
   - StartInteract
   - Key2Found
   - Key1Found
+  - ReScan Astar
+  - Open
+  - open
